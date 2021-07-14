@@ -1,0 +1,167 @@
+
+<%- contentFor('HeaderCss') %>
+<!-- DataTables -->
+<link href="public/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="public/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Responsive datatable examples -->
+<link href="public/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+<%- contentFor('breadcrumb') %>
+
+<li class="main-header__item">
+    <a   href="/addarticles">addarticles </a>
+  
+<!-- start page title -->
+ <!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Data Articles</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+                    <li class="breadcrumb-item active">Articles</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+ 
+<!-- end page title -->
+
+<%- contentFor('body') %>
+ 
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+               
+
+                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Short description</th>
+                        <th>Full description</th>
+                        <th>image</th>
+                        <th>Actions</th>
+                     
+                    </tr>
+                    </thead>
+
+
+                    <tbody>
+                    <tr>
+                        <% for(var i = 0; i < articles.length; i++) { %>
+                            <tr>
+                                <td><%= articles[i].title %></td>
+                                <td><%= articles[i].short_disc %></td>
+                                <td><%= articles[i].full_text %></td>
+                                <td><%= articles[i].image %></td>
+                                
+                                
+                                <td>
+                                    <button
+                                        class="button editButton  btn btn-primary "
+                                        data-title="<%=  articles[i].title %>"
+                                        data-short_disc="<%= articles[i].short_disc %>"
+                                        data-full_text="<%=  articles[i].full_text %>"
+                                        data-image="<%=  articles[i].image %>" 
+                                    >
+                                        Edit
+                                    </button>
+                                    <button  
+                                        class="button deleteButton   btn btn-primary"
+                                        data-title="<%=  articles[i].title %>"
+                                        data-short_disc="<%= articles[i].short_disc %>"
+                                        data-full_text="<%=  articles[i].full_text %>"
+                                        data-image="<%=  articles[i].image %>" 
+                                    
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </tr>
+                    
+                   
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <div class="col-md-10">
+                    <label for="floatingnameInput">Title</label>
+            <input  type="text" name="newtitle" id="newtitle"  class="form-control"  />
+         
+        </div>
+   
+        <label for="floatingnameInput">Short_disc</label>
+        <div class="form-floating mb-3">
+        <input type="text"  type="text" name="newshort_disc" id="newshort_disc"  class="form-control" /> 
+
+    </div>
+
+               <label for="floatingnameInput">Full_text</label>
+    
+              <div class="form-floating mb-3">
+                <textarea type="text" class="form-control" id="newfull_text" placeholder="Description"   name="newfull_text"></textarea>
+                <label for="floatingnameInput">Description</label>
+            </div>
+   <div class="col-md-10">
+              <label for="floatingnameInput">image</label>
+              <input type="file" name="image" id="image"   class="form-control"  /></div>
+
+             <button class="btn btn-primary  updateButton "">
+                Update
+            </button> 
+            
+            </div>
+        </div>
+    </div>
+       
+        
+    
+    
+   
+  
+<div class="container form">
+    <div>Update</div>
+        <div class="entry">
+          
+            <input type="hidden" name="oldtitle" id="oldtitle" readonly="true" />
+        </div>
+        <div class="entry">
+        
+            <input type="hidden" name="oldshort_disc" id="oldshort_disc" readonly="true" />
+        </div>
+        <div class="entry">
+          
+            <input type="hidden" name="oldfull_text" id="oldfull_text" readonly="true" />
+        </div>
+        <div class="entry">
+           
+            <input type="hidden" name="oldimage" id="oldimage" readonly="true" />
+        </div>
+        
+         
+<script src="/public/assets/css/editArt.js"></script>
+<%- contentFor('FooterJs') %>
+
+<%- contentFor('BottomJs') %>

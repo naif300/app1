@@ -1,0 +1,100 @@
+<%- contentFor('HeaderCss') %>
+
+<%- contentFor('breadcrumb') %>
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">shows Page</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Utility</a></li>
+                    <li class="breadcrumb-item active">naif Page</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+<%- contentFor('body') %>
+
+ 
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">All data</h4>
+                <div class="table-responsive">
+                    <table class="table table-nowrap align-middle mb-0">
+                        <tbody>
+
+
+                            <% if (docs.length > 0) { %>
+                            <% for(var i = 0; i < docs.length; i++) { %> 
+
+                            <tr>
+                                <td style="width: 40px;">
+                                    <div class="form-check font-size-16">
+                                        <label class="form-check-label" for="upcomingtaskCheck01"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5 class="text-truncate font-size-14 m-0"><a href="#" class="text-dark"><%= docs[i].title %></a></h5>
+                                 
+                                    <!-- <a class="delete" data-docu="<%= docs[i]._id %>">DELETE</a> -->
+                                    <a class="btn btn-raised btn-danger" href="/post-category/detele/<%= docs[i]._id %>">Delete</a>
+
+                                </td> 
+                                <td>
+                                    <h5 class="text-truncate font-size-14 m-0"><a href="#" class="text-dark"><%= docs[i].price %></a></h5>
+                                  
+                                    <!-- <a class="delete" data-docu="<%= docs[i]._id %>">DELETE</a> -->
+                                    <a class="btn btn-raised btn-danger" href="/post-category/detele/<%= docs[i]._id %>">Delete</a>
+
+                                </td>     
+                            </tr>
+                            
+                            <% }} %>
+                           
+
+                            <tr>
+                                <td>
+                                    <div class="form-check font-size-16">
+                                        <!-- <input class="form-check-input" type="checkbox" id="upcomingtaskCheck02" checked> -->
+                                        <label class="form-check-label" for="upcomingtaskCheck02"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5 class="text-truncate font-size-14 m-0"><a href="#" class="text-dark">International</a></h5>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check font-size-16">
+                                        <!-- <input class="form-check-input" type="checkbox" id="upcomingtaskCheck03"> -->
+                                        <label class="form-check-label" for="upcomingtaskCheck03"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5 class="text-truncate font-size-14 m-0"><a href="#" class="text-dark">Sports News</a></h5>
+                                </td>
+                              
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->
+<script>
+</script>
+
+<%- contentFor('FooterJs') %>
+
+<%- contentFor('BottomJs') %>

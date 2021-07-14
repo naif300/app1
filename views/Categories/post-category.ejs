@@ -1,0 +1,161 @@
+<%- contentFor('HeaderCss') %>
+
+<%- contentFor('breadcrumb') %>
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Post Category Page</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Utility</a></li>
+                    <li class="breadcrumb-item active">Category Page</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+<%- contentFor('body') %>
+
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Add New Category</h5>
+                <!-- <p class="card-title-desc">Create beautifully simple form labels that float over your input fields.</p> -->
+
+                <form action="/post-category" method="POST">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingnameInput" placeholder="Enter Name" value="type category here" name="name">
+                        <label for="floatingnameInput">Category Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingnameInput" placeholder="Enter Name" value="description here" name="description">
+                        <label for="floatingnameInput">Description</label>
+                    </div>
+
+                    <div class="mb-3">
+                        
+                        <!-- <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="floatingCheck">
+                            <label class="form-check-label" for="floatingCheck">
+                              Check me out
+                            </label>
+                        </div> -->
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary w-md">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!-- end card body -->
+        </div>
+        <!-- end card -->
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">All Categories</h4>
+                <div class="table-responsive">
+                    <table class="table table-nowrap align-middle mb-0">
+                        <tbody>
+
+
+                            <% if (docs.length > 0) { %>
+                            <% for(var i = 0; i < docs.length; i++) { %> 
+
+                            <tr>
+                                <td style="width: 40px;">
+                                    <div class="form-check font-size-16">
+                                        <label class="form-check-label" for="upcomingtaskCheck01"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5 class="text-truncate font-size-14 m-0"><a href="#" class="text-dark"><%= docs[i].name %></a></h5>
+                                    <% console.log(docs[i]._id) %>
+                                    <!-- <a class="delete" data-docu="<%= docs[i]._id %>">DELETE</a> -->
+                                    
+
+                                    <a class="btn btn-raised btn-danger" href="/post-category/detele/<%= docs[i]._id %>">Delete</a>
+
+                                    
+                                </td>     
+                            </tr>
+                            
+                            <% }} %>
+                           
+
+                            <tr>
+                                <td>
+                                    <div class="form-check font-size-16">
+                                        <!-- <input class="form-check-input" type="checkbox" id="upcomingtaskCheck02" checked> -->
+                                        <label class="form-check-label" for="upcomingtaskCheck02"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5 class="text-truncate font-size-14 m-0"><a href="#" class="text-dark">International</a></h5>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check font-size-16">
+                                        <!-- <input class="form-check-input" type="checkbox" id="upcomingtaskCheck03"> -->
+                                        <label class="form-check-label" for="upcomingtaskCheck03"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5 class="text-truncate font-size-14 m-0"><a href="#" class="text-dark">Sports News</a></h5>
+                                </td>
+                                <!-- <td>
+                                    <div class="avatar-group">
+                                        <div class="avatar-group-item">
+                                            <a href="javascript: void(0);" class="d-inline-block">
+                                                <img src="public/assets/images/users/avatar-3.jpg" alt="" class="rounded-circle avatar-xs">
+                                            </a>
+                                        </div>
+                                        <div class="avatar-group-item">
+                                            <a href="javascript: void(0);" class="d-inline-block">
+                                                <div class="avatar-xs">
+                                                    <span class="avatar-title rounded-circle bg-warning text-white font-size-16">
+                                                        R
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="avatar-group-item">
+                                            <a href="javascript: void(0);" class="d-inline-block">
+                                                <img src="public/assets/images/users/avatar-5.jpg" alt="" class="rounded-circle avatar-xs">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <span class="badge rounded-pill badge-soft-secondary font-size-11">Waiting</span>
+                                    </div>
+                                </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->
+<script>
+</script>
+
+<%- contentFor('FooterJs') %>
+
+<%- contentFor('BottomJs') %>
